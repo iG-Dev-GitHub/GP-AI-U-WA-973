@@ -1,30 +1,34 @@
-import { Text, View, StyleSheet, Image } from "react-native";
-
-const EXPO_PUBLIC_BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
+import { useEffect } from 'react';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
+import { loadAppData } from '../src/store/storage';
+import { COLORS } from '../src/constants/theme';
 
 export default function Index() {
-  console.log(EXPO_PUBLIC_BACKEND_URL, "EXPO_PUBLIC_BACKEND_URL");
+  const router = useRouter();
+
+  useEffect(() => {
+    loadAppData().then((data) => {
+      if (data.hasSeenTutorial) {
+        router.replace('/home');
+      } else {
+        router.replace('/welcome');
+      }
+    });
+  }, []);
 
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../assets/images/app-image.png")}
-        style={styles.image}
-      />
+    <View style={s.container}>
+      <ActivityIndicator color={COLORS.cyan} size="large" />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const s = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0c0c0c",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
+    backgroundColor: COLORS.bg,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
