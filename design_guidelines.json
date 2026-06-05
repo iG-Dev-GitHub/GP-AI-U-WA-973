@@ -1,0 +1,102 @@
+{
+  "project_name": "Breath Tower Rise Builder",
+  "theme_archetype": "Archetype 5 (Luxury / Atmospheric Night Mode) + Soft Gamified Glows",
+  "global_design_principles": [
+    "Dark Mode Mandatory: Interface must be grounded in dark navy blue (#0D1B2A) to evoke a calm night sky.",
+    "Soft Glow Mechanics: Use shadows and opacity to create neon-like soft glows on interactive elements and game blocks.",
+    "Motion over Static: The breathing ring and crane must feel alive. Use Reanimated 2 for 60fps fluid motions.",
+    "Flat/Cartoon Calm Art: Avoid hyper-realism. Shapes should be slightly rounded, friendly, and vector-like."
+  ],
+  "typography": {
+    "font_family_primary": "Quicksand",
+    "font_family_secondary": "Nunito",
+    "scales": {
+      "h1": { "fontSize": 48, "fontWeight": "700", "letterSpacing": -1 },
+      "h2": { "fontSize": 32, "fontWeight": "700", "letterSpacing": -0.5 },
+      "h3": { "fontSize": 24, "fontWeight": "600", "letterSpacing": 0 },
+      "body": { "fontSize": 16, "fontWeight": "400", "lineHeight": 24 },
+      "caption": { "fontSize": 12, "fontWeight": "500", "letterSpacing": 1.5, "textTransform": "uppercase" }
+    }
+  },
+  "colors": {
+    "background": {
+      "night_sky": "#0D1B2A",
+      "city_skyline_base": "#1B263B",
+      "city_skyline_highlight": "#415A77"
+    },
+    "blocks": {
+      "light_blue_standard": "#87CEEB",
+      "white_custom": "#FFFFFF",
+      "perfect_gold": "#FFD700",
+      "calm_cyan": "#00CED1"
+    },
+    "techniques": {
+      "technique_4_7_8": "#9D4CDD",
+      "technique_box": "#87CEEB",
+      "technique_custom": "#FFFFFF"
+    },
+    "ui_elements": {
+      "text_primary": "#FFFFFF",
+      "text_secondary": "rgba(255, 255, 255, 0.7)",
+      "button_bg": "#1B263B",
+      "button_border": "rgba(255, 255, 255, 0.15)",
+      "overlay": "rgba(13, 27, 42, 0.8)",
+      "crane": "#9CA3AF"
+    }
+  },
+  "spacing_and_layout": {
+    "screen_padding": 24,
+    "element_gap_sm": 8,
+    "element_gap_md": 16,
+    "element_gap_lg": 32,
+    "border_radius": {
+      "sm": 8,
+      "md": 16,
+      "lg": 24,
+      "pill": 9999
+    }
+  },
+  "components": {
+    "buttons": {
+      "style": "Glassmorphism / Neon hybrid. Background #1B263B with a 1px soft border and subtle glow matching the active technique color.",
+      "padding": "16px vertical, 32px horizontal",
+      "borderRadius": 9999
+    },
+    "breathing_ring": {
+      "style": "A central glowing circle that expands and contracts. Must use Reanimated. Stroke color shifts based on the breath phase (e.g., inhale=cyan, hold=white, exhale=blue)."
+    },
+    "tower_block": {
+      "style": "Rectangular flat-art blocks. Slight inner shadow or linear gradient to give subtle 2.5D depth. Outer glow dropshadow if it's a Perfect Block (#FFD700)."
+    },
+    "crane": {
+      "style": "Minimalist geometric flat art crane. Anchored at the top, sweeping gently left to right."
+    }
+  },
+  "motion_and_animations": {
+    "library": "react-native-reanimated",
+    "breathing_ring": "useSharedValue + withTiming for expansion (inhale) and contraction (exhale).",
+    "crane_swing": "withRepeat(withSequence(withTiming(rotation, duration), withTiming(-rotation, duration)), -1, true).",
+    "block_drop": "withSpring for realistic landing impact. Trigger a 'tower shake' by animating the Y-offset of the tower container briefly.",
+    "perfect_block_flash": "withSequence opacity flash 0->1->0 over 300ms."
+  },
+  "media_and_images": {
+    "background_inspiration": {
+      "url": "https://images.unsplash.com/photo-1502964740190-e59d1e3dd8db?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwyfHxuaWdodCUyMGNpdHklMjBza3lsaW5lJTIwaWxsdXN0cmF0aW9ufGVufDB8fHx8MTc4MDY1NzIyOHww&ixlib=rb-4.1.0&q=85",
+      "description": "Night city skyline with reflective lights to use as reference or backdrop for the tower environment."
+    },
+    "breathing_ring_inspiration": {
+      "url": "https://images.pexels.com/photos/36552127/pexels-photo-36552127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Luminous neon ring emitting vibrant light in a dark setting, representing the breathing timer UI."
+    }
+  },
+  "testing": {
+    "data_testid_requirement": "All interactive elements, buttons, and text fields MUST use the `testID` property in React Native (equivalent of data-testid) in kebab-case, e.g., testID='start-session-button'."
+  },
+  "instructions_to_main_agent": [
+    "DO NOT USE HTML OR CSS. This is a React Native Expo application. Use StyleSheet.create().",
+    "DO NOT use Tailwind or standard web CSS classes.",
+    "Use @expo/vector-icons (Feather, Ionicons) for iconography.",
+    "Ensure all components are strictly mobile-responsive, using Dimensions or Flexbox.",
+    "Use pure Reanimated for animations (useSharedValue, useAnimatedStyle, withTiming, withSpring)."
+  ]
+}
