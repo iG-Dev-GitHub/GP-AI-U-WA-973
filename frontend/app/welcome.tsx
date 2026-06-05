@@ -55,7 +55,9 @@ export default function Welcome() {
 
   const handleNext = async () => {
     if (activeSlide < SLIDES.length - 1) {
-      listRef.current?.scrollToIndex({ index: activeSlide + 1, animated: true });
+      const nextSlide = activeSlide + 1;
+      setActiveSlide(nextSlide);
+      listRef.current?.scrollToIndex({ index: nextSlide, animated: true });
     } else {
       await markTutorialSeen();
       router.replace('/home');
@@ -78,6 +80,7 @@ export default function Welcome() {
           pagingEnabled
           showsHorizontalScrollIndicator={false}
           onScroll={handleScroll}
+          onMomentumScrollEnd={handleScroll}
           scrollEventThrottle={16}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
