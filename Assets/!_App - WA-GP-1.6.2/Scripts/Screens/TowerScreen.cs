@@ -113,7 +113,7 @@ namespace BreathTower.Screens
         {
             var card = Box().AlignItems(Align.Center).Pad(Theme.SpaceXl).Bg(Theme.Surface).Radius(Theme.RadiusXl);
             card.style.marginBottom = Theme.SpaceLg;
-            var e = Widgets.TowerGlyph(60);
+            var e = Widgets.ConstructionGlyph(60, Theme.Crane, Theme.TechniqueBox);
             e.style.marginBottom = Theme.SpaceMd;
             card.Add(e);
             var t = Text("Your tower is empty", Theme.FontLg, Theme.TextPrimary, FontStyle.Bold);

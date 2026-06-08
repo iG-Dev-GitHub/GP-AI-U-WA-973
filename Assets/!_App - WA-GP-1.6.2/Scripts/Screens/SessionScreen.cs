@@ -147,9 +147,10 @@ namespace BreathTower.Screens
             _towerStack.style.left = 0; _towerStack.style.right = 0; _towerStack.style.bottom = 62;
             _towerStack.style.alignItems = Align.Center;
             _towerStack.style.flexDirection = FlexDirection.ColumnReverse;
-            area.Add(_towerStack);
 
-            // City silhouette.
+            // City silhouette. Added BEFORE the tower so the (opaque) buildings
+            // sit behind it — otherwise the taller buildings flanking the centre
+            // clip the lower blocks and the base appears to taper to a point.
             var city = Box().Absolute().Height(60);
             city.style.left = 0; city.style.right = 0; city.style.bottom = 0;
             foreach (var (bx, bw, bh) in Buildings)
@@ -159,6 +160,9 @@ namespace BreathTower.Screens
                 city.Add(b);
             }
             area.Add(city);
+
+            // Tower paints in front of the skyline.
+            area.Add(_towerStack);
 
             parent.Add(area);
         }
@@ -283,7 +287,16 @@ namespace BreathTower.Screens
 
         private void EndEarly()
         {
-            if (!_active || _finishing) return;
+            if (_finishing) return;
+            // Before the session has started (the "Ready" state) the × simply
+            // leaves the screen — there is no run to end yet, so it must not be
+            // a dead button.
+            if (!_started)
+            {
+                App.Back();
+                return;
+            }
+            if (!_active) return;
             _finishing = true;
             Finish();
         }

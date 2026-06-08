@@ -53,8 +53,11 @@ namespace BreathTower.Screens
             var hero = Box().AlignItems(Align.Center);
             hero.style.marginBottom = Theme.SpaceXl;
 
-            // Drawn celebratory glyph (font-independent): a glowing tower.
-            var glyph = Widgets.TowerGlyph(60);
+            // Celebratory glyph, mirroring the reference's cycle-based emoji:
+            //   ≥10 → 🌟 star, ≥5 → ✨ sparkle, else 🧘 meditation.
+            VisualElement glyph = s.cyclesCompleted >= 10 ? Widgets.StarGlyph(64, Theme.Gold)
+                : s.cyclesCompleted >= 5 ? Widgets.SparkleGlyph(60, Theme.Gold)
+                : Widgets.MeditationGlyph(64, Theme.Cyan);
             glyph.style.marginBottom = Theme.SpaceMd;
             hero.Add(glyph);
 

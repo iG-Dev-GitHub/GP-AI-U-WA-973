@@ -106,10 +106,11 @@ namespace BreathTower.Screens
             s.style.paddingBottom = 80;
 
             var emojiWrap = Box().Center().MarginBottom(Theme.SpaceXl);
-            // Drawn icon per slide (font-independent): tower / ring / star.
-            VisualElement icon = slide.Kind == "ring" ? Widgets.RingGlyph(72)
-                : slide.Kind == "star" ? (VisualElement)Text("*", 72, Theme.Gold, FontStyle.Bold).TextCenter()
-                : Widgets.TowerGlyph(70);
+            // Vector icon per slide, matching the reference emoji:
+            //   tower → 🏗️ construction, ring → 🧘 meditation, star → 🌟 star.
+            VisualElement icon = slide.Kind == "ring" ? Widgets.MeditationGlyph(76, Theme.Cyan)
+                : slide.Kind == "star" ? Widgets.StarGlyph(74, Theme.Gold)
+                : Widgets.ConstructionGlyph(78, Theme.Crane, Theme.TechniqueBox);
             icon.style.marginBottom = Theme.SpaceMd;
             emojiWrap.Add(icon);
 

@@ -163,7 +163,7 @@ namespace BreathTower.Screens
         private VisualElement BuildEmpty()
         {
             var card = Box().Center().Pad(Theme.SpaceXl).Bg(Theme.Surface).Radius(Theme.RadiusXl);
-            var emoji = Widgets.TowerGlyph(56);
+            var emoji = Widgets.ConstructionGlyph(56, Theme.Crane, Theme.TechniqueBox);
             emoji.style.marginBottom = Theme.SpaceMd;
             card.Add(emoji);
             var t = Text("No sessions yet", Theme.FontLg, Theme.TextPrimary, FontStyle.Bold);
