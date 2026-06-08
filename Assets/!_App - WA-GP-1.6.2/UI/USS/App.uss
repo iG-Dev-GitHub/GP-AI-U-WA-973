@@ -1,0 +1,40 @@
+/*
+ * Shared app stylesheet for Breath Tower. Applied to the root panel by
+ * BreathTowerApp. Dynamic / computed styling (per-technique colors, animated
+ * transforms, runtime gradients) lives in C#; this file holds the static,
+ * cross-screen rules — including the app-wide hiding of scrollbars.
+ */
+
+.bt-screen {
+    flex-grow: 1;
+}
+
+/* Hide every ScrollView scrollbar app-wide while keeping touch/wheel/drag
+   scrolling fully functional. Belt-and-suspenders with ScrollerVisibility.Hidden. */
+.unity-scroll-view__vertical-scroller,
+.unity-scroll-view__horizontal-scroller {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.unity-scroller {
+    display: none;
+}
+
+/* Keep stacked scroll content at its natural (fixed) size instead of letting
+   flexbox shrink it to fit the viewport. The content then overflows and the
+   ScrollView scrolls, rather than the UI being compressed. */
+.unity-scroll-view__content-container > * {
+    flex-shrink: 0;
+}
+
+/* Readable text defaults: never clip, wrap long copy. */
+.unity-label {
+    white-space: normal;
+}
+
+/* Remove default control chrome we restyle from code. */
+.unity-text-field__input {
+    border-width: 0;
+}

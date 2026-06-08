@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p Assets/BreathTower/Scripts/App Assets/BreathTower/Scripts/Core Assets/BreathTower/Scripts/Data Assets/BreathTower/Scripts/UI Assets/BreathTower/Scripts/Screens Assets/BreathTower/UI/UXML Assets/BreathTower/UI/USS Assets/BreathTower/Fonts Assets/BreathTower/Settings Assets/Scenes)",
+      "Bash(cp Source/frontend/assets/fonts/SpaceMono-Regular.ttf Assets/BreathTower/Fonts/SpaceMono-Regular.ttf)",
+      "Bash(sed -i 's/Text\\(\"✕\"/Text\\(\"×\"/' SessionScreen.cs)",
+      "Bash(sed -i 's/GradientButton\\(\"▶  Begin\"/GradientButton\\(\"Begin\"/' SessionScreen.cs)",
+      "Bash(sed -i 's/GradientButton\\(\"▶  Start Session\"/GradientButton\\(\"Start Session\"/' TechniqueScreen.cs)",
+      "Bash(sed -i 's/GradientButton\\(\"⟳  Build Again\"/GradientButton\\(\"Build Again\"/' SummaryScreen.cs)",
+      "Bash(sed -i 's/GradientButton\\(\"+  New Session\"/GradientButton\\(\"+  New Session\"/' HomeScreen.cs)",
+      "Bash(sed -i 's/Text\\(\"✓\"/Text\\(\"•\"/' TechniqueScreen.cs)",
+      "Bash(sed -i 's/Text\\(\"⚙\"/Text\\(\"•••\"/' HomeScreen.cs)",
+      "Bash(sed -i 's/\"▤  View Full Tower\"/\"View Full Tower\"/' HomeScreen.cs)",
+      "Bash(sed -i 's/Text\\(\"⟳\"/Text\\(\"!\"/' SettingsScreen.cs)",
+      "Bash(sed -i 's/Text\\(\"🗑\"/Text\\(\"×\"/' SettingsScreen.cs)"
+    ]
+  }
+}
