@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "807279699864",
+    "project_id": "breath-tower-rise-builder",
+    "storage_bucket": "breath-tower-rise-builder.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807279699864:android:04f5ea2886879322d32ded",
+        "android_client_info": {
+          "package_name": "com.blockcalm.breathtowrixb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAG67_-yvS3rWWE0Os29WqVlyRyo3unp-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

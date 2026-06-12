@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+  <string name="gcm_defaultSenderId" translatable="false">807279699864</string>
+  <string name="google_storage_bucket" translatable="false">breath-tower-rise-builder.firebasestorage.app</string>
+  <string name="project_id" translatable="false">breath-tower-rise-builder</string>
+  <string name="google_api_key" translatable="false">AIzaSyAG67_-yvS3rWWE0Os29WqVlyRyo3unp-c</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAG67_-yvS3rWWE0Os29WqVlyRyo3unp-c</string>
+  <string name="google_app_id" translatable="false">1:807279699864:android:04f5ea2886879322d32ded</string>
+</resources>
